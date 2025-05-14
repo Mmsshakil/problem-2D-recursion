@@ -1,22 +1,14 @@
 #include <stdio.h>
 
-int rec(int arr[], int n, int i)
+long long int rec(int arr[], int n, int i)
 {
     if (i == n - 1)
     {
         return arr[i];
     }
 
-    int max = rec(arr, n, i + 1);
-
-    if (arr[i] > max)
-    {
-        return arr[i];
-    }
-    else
-    {
-        return max;
-    }
+    long long int sum = rec(arr, n, i + 1);
+    return sum + arr[i];
 }
 
 int main()
@@ -30,8 +22,8 @@ int main()
         scanf("%d", &arr[i]);
     }
 
-    int result = rec(arr, n, 0);
-    printf("%d", result);
+    long long int result = rec(arr, n, 0);
+    printf("%lld", result);
 
     return 0;
 }
